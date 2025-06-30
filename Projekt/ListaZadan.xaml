@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt.ListaZadan"
+             Title="">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <Label Text="Lista zadań" FontSize="32" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+        <Entry x:Name="PoleZadania" Placeholder="Wpisz nowe zadanie" />
+
+        <Button Text="Dodaj zadanie" Clicked="DodajZadanie_Clicked" />
+
+        <CollectionView x:Name="ListaZadanWidok"
+                        ItemsSource="{Binding Zadania}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                
+                <DataTemplate>
+
+                    <HorizontalStackLayout Padding="5" VerticalOptions="Center">
+                        
+                        <CheckBox IsChecked="{Binding Wykonane}" VerticalOptions="Center" />
+                        
+                        <Label Text="{Binding Opis}" 
+                            VerticalOptions="Center" 
+                            Margin="0,0,10,0" />
+
+                        <Button Text="Usuń"
+                            CommandParameter="{Binding .}"
+                            Clicked="UsunZadanie_Clicked"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            WidthRequest="70" />
+                    </HorizontalStackLayout>
+                    
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        
+    </VerticalStackLayout>
+    
+</ContentPage>
