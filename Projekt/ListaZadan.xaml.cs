@@ -4,14 +4,18 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace Projekt
 {
     public partial class ListaZadan : ContentPage
     {
         public ObservableCollection<Zadanie> Zadania { get; set; } = new ObservableCollection<Zadanie>();
-        public ListaZadan()
+        private readonly string sciezkaPliku = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+        "zadania.json");
 
+        public ListaZadan()
         {
             InitializeComponent();
             BindingContext = this;
@@ -33,6 +37,53 @@ namespace Projekt
                 Zadania.Remove(zadanie);
             }
         }
+        private async void ZapiszZadania_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var json = JsonSerializer.Serialize(Zadania, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(sciezkaPliku, json);
+
+                await DisplayAlert("Sukces", "Zadania zostały zapisane do pliku.", "Ok");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Błąd", $"Nie udało się zapisać: {ex.Message}", "Ok");
+            }
+        }
+        private async void WczytajZadania_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(sciezkaPliku))
+                {
+                    var json = File.ReadAllText(sciezkaPliku);
+                    var wczytane = JsonSerializer.Deserialize<ObservableCollection<Zadanie>>(json);
+
+                    if (wczytane != null)
+                    {
+                        Zadania.Clear();
+                        foreach (var zadanie in wczytane)
+                            Zadania.Add(zadanie);
+
+                        await DisplayAlert("Wczytano", "Zadania zostały wczytane z pliku.", "Ok");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Błąd", "Nie udało się wczytać danych.", "Ok");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Brak pliku", "Nie znaleziono pliku", "Ok");
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Błąd", $"Błąd podczas wczytywania: {ex.Message}", "Ok");
+            }
+        }
+
     }
 }
 
