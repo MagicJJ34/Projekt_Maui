@@ -15,20 +15,28 @@ namespace Projekt
         private readonly string sciezkaPliku = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
         "zadania.json");
         public ObservableCollection<Zadanie> UsunieteZadaniaLista { get; set; } = new ObservableCollection<Zadanie>();
-
-
         public ListaZadan()
         {
             InitializeComponent();
             BindingContext = this;
         }
-        private void DodajZadanie_Clicked(object sender, EventArgs e)
+        private async void DodajZadanie_Clicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(PoleZadania.Text))
             {
                 Zadania.Add(new Zadanie { Opis = PoleZadania.Text, Wykonane = false });
                 PoleZadania.Text = string.Empty;
+
+                if (Preferences.Get("autozapis", false))
+                {
+                    await ZapiszZadaniaAsync();
+                }
             }
+        }
+        private async Task ZapiszZadaniaAsync()
+        {
+            var json = JsonSerializer.Serialize(Zadania, new JsonSerializerOptions { WriteIndented = true });
+            await File.WriteAllTextAsync(sciezkaPliku, json);
         }
         private void UsunZadanie_Clicked(object sender, EventArgs e)
         {
