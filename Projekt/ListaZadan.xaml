@@ -28,6 +28,18 @@
                     TextColor="Black" 
                     HorizontalOptions="FillAndExpand"/>
 
+                <Button Text="Pokaż usunięte"
+                    Clicked="PokazUsuniete_Clicked"
+                    BackgroundColor="LightGray"
+                    TextColor="Black"
+                    HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="Wyczyść wszystkie zadania"
+                    Clicked="WyczyscZadania_Clicked"
+                    BackgroundColor="LightCoral"
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"/>
+
             </VerticalStackLayout>
 
             <CollectionView x:Name="ListaZadanWidok"
