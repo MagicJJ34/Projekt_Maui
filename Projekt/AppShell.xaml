@@ -15,4 +15,8 @@
         Title="Lista zadań"
         ContentTemplate="{DataTemplate local:ListaZadan}" 
         Route="ListaZadan" />
+    <ShellContent 
+        Title="Ustawienia"
+        ContentTemplate="{DataTemplate local:Ustawienia}" 
+        Route="Ustawienia" />
 </Shell>
