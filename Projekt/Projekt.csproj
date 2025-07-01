@@ -68,6 +68,9 @@
 	  <MauiXaml Update="ListaZadan.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Ustawienia.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UsunieteZadania.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
