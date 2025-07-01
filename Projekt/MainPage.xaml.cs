@@ -9,13 +9,9 @@ namespace Projekt
         {
             InitializeComponent();
         }
-        private void NowyPlik_Clicked(object sender, EventArgs e)
+        private async void PrzejdzDoListy_Clicked(object sender, EventArgs e)
         {
-            
-        }
-        private void WczytajPlik_Clicked(object sender, EventArgs e)
-        {
-            
+            await Navigation.PushAsync(new ListaZadan());
         }
     }
 }
