@@ -14,6 +14,8 @@ namespace Projekt
         public ObservableCollection<Zadanie> Zadania { get; set; } = new ObservableCollection<Zadanie>();
         private readonly string sciezkaPliku = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
         "zadania.json");
+        public ObservableCollection<Zadanie> UsunieteZadaniaLista { get; set; } = new ObservableCollection<Zadanie>();
+
 
         public ListaZadan()
         {
@@ -35,6 +37,7 @@ namespace Projekt
             if (zadanie != null)
             {
                 Zadania.Remove(zadanie);
+                UsunieteZadaniaLista.Add(zadanie);
             }
         }
         private async void ZapiszZadania_Clicked(object sender, EventArgs e)
@@ -81,6 +84,22 @@ namespace Projekt
             catch (Exception ex)
             {
                 await DisplayAlert("Błąd", $"Błąd podczas wczytywania: {ex.Message}", "Ok");
+            }
+        }
+        private async void PokazUsuniete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UsunieteZadania(UsunieteZadaniaLista, Zadania));
+        }
+        private async void WyczyscZadania_Clicked(object sender, EventArgs e)
+        {
+            bool potwierdzenie = await DisplayAlert("Potwierdzenie", "Czy na pewno chcesz usunąć wszystkie zadania?", 
+                "Tak", "Nie");
+            if (potwierdzenie)
+            {
+                Zadania.Clear();
+                UsunieteZadaniaLista.Clear();
+
+                await DisplayAlert("Wyczyszczono", "Wszystkie zadania zostały usunięte.", "Ok");
             }
         }
 
