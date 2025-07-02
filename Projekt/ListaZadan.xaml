@@ -10,37 +10,42 @@
 
             <Entry x:Name="PoleZadania" Placeholder="Wpisz nowe zadanie" HorizontalOptions="FillAndExpand"/>
 
-            <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+            <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="10" HorizontalOptions="FillAndExpand">
 
                 <Button Text="Dodaj zadanie" 
                     Clicked="DodajZadanie_Clicked" 
+                    Grid.Column="0"
                     HorizontalOptions="FillAndExpand"/>
 
                 <Button Text="Wczytaj" 
                     Clicked="WczytajZadania_Clicked"
                     BackgroundColor="LightGray"
-                    TextColor="Black" 
+                    TextColor="Black"
+                    Grid.Column="1"
                     HorizontalOptions="FillAndExpand"/>
 
                 <Button Text="Zapisz"
                     Clicked="ZapiszZadania_Clicked"
                     BackgroundColor="LightGray" 
-                    TextColor="Black" 
+                    TextColor="Black"
+                    Grid.Column="2"
                     HorizontalOptions="FillAndExpand"/>
 
                 <Button Text="Pokaż usunięte"
                     Clicked="PokazUsuniete_Clicked"
                     BackgroundColor="LightGray"
                     TextColor="Black"
+                    Grid.Column="3"
                     HorizontalOptions="FillAndExpand"/>
 
                 <Button Text="Wyczyść wszystkie zadania"
                     Clicked="WyczyscZadania_Clicked"
                     BackgroundColor="LightCoral"
                     TextColor="White"
+                    Grid.Column="4"
                     HorizontalOptions="FillAndExpand"/>
 
-            </VerticalStackLayout>
+            </Grid>
 
             <CollectionView x:Name="ListaZadanWidok"
                         ItemsSource="{Binding Zadania}"
