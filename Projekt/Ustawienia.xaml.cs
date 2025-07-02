@@ -13,21 +13,17 @@ namespace Projekt
         public Ustawienia()
         {
             InitializeComponent();
+            // Ustawienie wartości dla switchów
             SwitchMotyw.IsToggled = Preferences.Get("Motyw", false);
             SwitchDzwieki.IsToggled = Preferences.Get("dzwieki", true); 
             SwitchAutozapis.IsToggled = Preferences.Get("autozapis", false);
         }
-        private void SwitchDzwieki_Toggled(object sender, ToggledEventArgs e)
-        {
-            Preferences.Set("dzwieki", e.Value);
-        }
-        private void SwitchAutozapis_Toggled(object sender, ToggledEventArgs e)
-        {
-            Preferences.Set("autozapis", e.Value);
-        }
+        // Zapisuje ustawienia
         private async void OnZapiszClicked(object sender, System.EventArgs e)
         {
             Preferences.Set("Motyw", SwitchMotyw.IsToggled);
+            Preferences.Set("autozapis", SwitchAutozapis.IsToggled);
+            Preferences.Set("dzwieki", SwitchDzwieki.IsToggled);
             await DisplayAlert("Ustawienia", "Ustawienia zapisane!", "Ok");
 
             Application.Current.UserAppTheme = SwitchMotyw.IsToggled ? AppTheme.Dark : AppTheme.Light;

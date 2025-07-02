@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt.MainPage"
              Title="">
-
+    
+    <!-- Utworzenie strony głównej -->
+    
     <Grid Padding="20">
 
         <Label Text="Witaj w aplikacji do zarządzania listą zadań !" FontSize="32" HorizontalOptions="Center" Margin="0,0,0,10"/>

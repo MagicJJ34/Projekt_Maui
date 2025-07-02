@@ -3,17 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt.Ustawienia"
              Title=" ">
-
+    <!-- Utworzenie strony z ułożeniem pionowym-->
     <VerticalStackLayout Padding="20" Spacing="15">
-
+        
+        <!-- Opcje do ustawienia-->
         <Label Text="Motyw (Jasny / Ciemny)" />
         <Switch x:Name="SwitchMotyw" />
 
         <Label Text="Dźwięki" />
-        <Switch x:Name="SwitchDzwieki" Toggled="SwitchDzwieki_Toggled" />
+        <Switch x:Name="SwitchDzwieki"/>
 
         <Label Text="Autozapisywanie" />
-        <Switch x:Name="SwitchAutozapis" Toggled="SwitchAutozapis_Toggled" />
+        <Switch x:Name="SwitchAutozapis"/>
 
         <Button Text="Zapisz ustawienia" Clicked="OnZapiszClicked" />
 

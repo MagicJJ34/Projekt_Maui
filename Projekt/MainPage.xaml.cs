@@ -9,6 +9,8 @@ namespace Projekt
         {
             InitializeComponent();
         }
+
+        // Przekierowanie do zakładki Lista zadań
         private async void PrzejdzDoListy_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ListaZadan());

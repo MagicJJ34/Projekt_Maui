@@ -3,15 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt.UsunieteZadania"
              Title="">
+    <!-- Utworzenie strony z ułożeniem pionowym-->
 
     <VerticalStackLayout Padding="10">
 
         <Label Text="Usunięte zadania" FontSize="28" HorizontalOptions="Center"/>
-
+        
+        <!-- Lista usuniętych zadań-->
         <CollectionView x:Name="UsunieteWidok"
                         ItemsSource="{Binding Usuniete}"
                         SelectionMode="None">
-
+            
+            <!-- Pojedyncze zadanie na liście -->
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <HorizontalStackLayout Padding="5" VerticalOptions="Center">

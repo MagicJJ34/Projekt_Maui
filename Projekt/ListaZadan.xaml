@@ -3,47 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt.ListaZadan"
              Title="">
+    <!-- Utworzenie strony z ułożeniem pionowym -->
     <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="10" HorizontalOptions="FillAndExpand">
+        
+        <VerticalStackLayout Padding="10" Spacing="10">
 
             <Label Text="Lista zadań" FontSize="32" HorizontalOptions="Center" Margin="0,0,0,10"/>
 
-            <Entry x:Name="PoleZadania" Placeholder="Wpisz nowe zadanie" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="PoleZadania" Placeholder="Wpisz nowe zadanie" />
 
-            <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="10" HorizontalOptions="FillAndExpand">
+            <!-- Utworzenie kolumn z przyciskami do obsługi -->
+            <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="10">
 
                 <Button Text="Dodaj zadanie" 
                     Clicked="DodajZadanie_Clicked" 
-                    Grid.Column="0"
-                    HorizontalOptions="FillAndExpand"/>
+                    Grid.Column="0"/>
 
                 <Button Text="Wczytaj" 
                     Clicked="WczytajZadania_Clicked"
                     BackgroundColor="LightGray"
                     TextColor="Black"
-                    Grid.Column="1"
-                    HorizontalOptions="FillAndExpand"/>
+                    Grid.Column="1"/>
 
                 <Button Text="Zapisz"
                     Clicked="ZapiszZadania_Clicked"
                     BackgroundColor="LightGray" 
                     TextColor="Black"
-                    Grid.Column="2"
-                    HorizontalOptions="FillAndExpand"/>
+                    Grid.Column="2"/>
 
                 <Button Text="Pokaż usunięte"
                     Clicked="PokazUsuniete_Clicked"
                     BackgroundColor="LightGray"
                     TextColor="Black"
-                    Grid.Column="3"
-                    HorizontalOptions="FillAndExpand"/>
+                    Grid.Column="3"/>
 
                 <Button Text="Wyczyść wszystkie zadania"
                     Clicked="WyczyscZadania_Clicked"
                     BackgroundColor="LightCoral"
                     TextColor="White"
-                    Grid.Column="4"
-                    HorizontalOptions="FillAndExpand"/>
+                    Grid.Column="4"/>
 
             </Grid>
 
@@ -51,6 +49,7 @@
                         ItemsSource="{Binding Zadania}"
                         SelectionMode="None">
 
+                <!-- Wyświetlana Lista zadań -->
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate>

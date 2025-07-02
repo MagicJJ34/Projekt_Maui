@@ -6,17 +6,22 @@
     xmlns:local="clr-namespace:Projekt"
     Shell.FlyoutBehavior="Flyout"
     Title="Projekt">
-
+    
+    <!-- Zakładka Strona główna -->
     <ShellContent
         Title="Strona główna"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:MainPage}" 
         Route="MainPage" />
+    
+    <!-- Zakładka Lista zadań-->
     <ShellContent 
         Title="Lista zadań"
         ContentTemplate="{DataTemplate local:ListaZadan}" 
         Route="ListaZadan" />
+    
+    <!-- Zakładka Ustawienia -->
     <ShellContent 
-        Title="Ustawienia"
+        Title="Ustawienia" 
         ContentTemplate="{DataTemplate local:Ustawienia}" 
         Route="Ustawienia" />
 </Shell>
