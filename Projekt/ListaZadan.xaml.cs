@@ -12,9 +12,7 @@ namespace Projekt
     public partial class ListaZadan : ContentPage
     {
         public ObservableCollection<Zadanie> Zadania { get; set; } = new ObservableCollection<Zadanie>(); // Kolekcja zadań
-
-        private readonly string sciezkaPliku = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-        "zadania.json"); // Ścieżka do pliku
+        private readonly string sciezkaPliku = "/data/user/0/com.companyname.projekt/files/zadania.json"; // Ścieżka do pliku
         public ObservableCollection<Zadanie> UsunieteZadaniaLista { get; set; } = 
         new ObservableCollection<Zadanie>(); // Lista usuniętych zadań
         public ListaZadan()
