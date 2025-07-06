@@ -15,33 +15,38 @@
             <!-- Utworzenie kolumn z przyciskami do obsługi -->
             <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="10">
 
-                <Button Text="Dodaj zadanie" 
+                <Button Text="Dodaj" 
                     Clicked="DodajZadanie_Clicked" 
-                    Grid.Column="0"/>
+                    Grid.Column="0"
+				    FontSize="10"/>
 
                 <Button Text="Wczytaj" 
                     Clicked="WczytajZadania_Clicked"
                     BackgroundColor="LightGray"
                     TextColor="Black"
-                    Grid.Column="1"/>
+                    Grid.Column="1"
+					FontSize="10"/>
 
                 <Button Text="Zapisz"
                     Clicked="ZapiszZadania_Clicked"
                     BackgroundColor="LightGray" 
                     TextColor="Black"
-                    Grid.Column="2"/>
+                    Grid.Column="2"
+					FontSize="10"/>
 
-                <Button Text="Pokaż usunięte"
+                <Button Text="Kosz"
                     Clicked="PokazUsuniete_Clicked"
                     BackgroundColor="LightGray"
                     TextColor="Black"
-                    Grid.Column="3"/>
+                    Grid.Column="3"
+					FontSize="10"/>
 
-                <Button Text="Wyczyść wszystkie zadania"
+                <Button Text="Wyczyść"
                     Clicked="WyczyscZadania_Clicked"
                     BackgroundColor="LightCoral"
                     TextColor="White"
-                    Grid.Column="4"/>
+                    Grid.Column="4"
+					FontSize="10"/>
 
             </Grid>
 
